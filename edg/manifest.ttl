@@ -1,0 +1,47 @@
+# baseURI: https://data.surroundaustralia.com/manifest/population/register
+# imports: https://data.surroundaustralia.com/def/standards-baseline
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix edgx: <http://topbraid.org/crosswalk#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix register: <https://data.surroundaustralia.com/manifest/population/register/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sopbl: <https://data.surroundaustralia.com/def/standards-baseline#> .
+@prefix swa: <http://topbraid.org/swa#> .
+@prefix teamwork: <http://topbraid.org/teamwork#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.surroundaustralia.com/manifest/population/register>
+  a owl:Ontology ;
+  swa:defaultNamespace "https://data.surroundaustralia.com/manifest/population/register/"^^xsd:anyURI ;
+  teamwork:newInstancesUserCannotModifyURI false ;
+  rdfs:comment "This Manifest contains a list of all the assets within Population KG"@en ;
+  rdfs:label "Population KG"@en ;
+  owl:imports <https://data.surroundaustralia.com/def/standards-baseline> ;
+  sopbl:purpose "The Population KG Product"@en ;
+.
+register:dataset
+  a sopbl:ManagedGraph ;
+  dcterms:provenance "Generated from the ABS' test population WFS"@en ;
+  rdfs:comment "Population Change 2019/2020 by SA2"@en ;
+  rdfs:label "Population Dataset"@en ;
+  sopbl:edgType <http://teamwork.topbraidlive.org/datagraph/datagraphprojects#ProjectType> ;
+  sopbl:include "https://linked.data.gov.au/def/population.observations.shapes"^^xsd:anyURI ;
+  sopbl:localCopyPath "datagraphs/dataset.ttl" ;
+  sopbl:module "POP" ;
+  sopbl:proxy "https://linked.data.gov.au/dataset/popchange1920"^^xsd:anyURI ;
+  sopbl:purpose "The Population Product"@en ;
+.
+register:population-properties
+  a sopbl:ManagedGraph ;
+  dcterms:provenance "Authoratitive version, generated here from non-RDF source data (ABS population measurements)"@en ;
+  rdfs:comment "A vocabulary of properties of population per Feature"@en ;
+  rdfs:label "Population Properties"@en ;
+  sopbl:edgType <http://evn.topbraidlive.org/evnprojects#ProjectType> ;
+  sopbl:localCopyPath "taxonomies/population-properties.ttl" ;
+  sopbl:module "POP" ;
+  sopbl:proxy "https://linked.data.gov.au/def/fsdf/population-properties"^^xsd:anyURI ;
+  sopbl:purpose "The Population Product"@en ;
+.

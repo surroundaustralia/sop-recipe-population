@@ -1,0 +1,46 @@
+# baseURI: https://linked.data.gov.au/def/fsdf/population-properties
+# prefix: popp
+
+@prefix cs: <https://linked.data.gov.au/def/fsdf/population-properties> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix popp: <https://linked.data.gov.au/def/fsdf/population-properties/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+cs: 
+    a owl:Ontology , skos:ConceptScheme ;
+    skos:prefLabel "Population Properties" ;
+    dcterms:creator <https://linked.data.gov.au/org/ga> ;
+    dcterms:publisher <https://linked.data.gov.au/org/icsm> ;
+    dcterms:created "2021-05-28"^^xsd:date ;
+    dcterms:modified "2021-05-28"^^xsd:date ;
+    dcterms:provenance "Created for the Loc-I DR Project" ;
+    skos:definition "This vocabulary lists properties of population - counts, changes, sex ratios etc. - that can be measured through observations of Features such as geographic areas." ;
+    owl:versionInfo "1.0"^^xsd:string ;
+    skos:hasTopConcept
+    	popp:population ,
+        popp:populationChange ;
+.
+
+popp:population
+    a skos:Concept ;
+    skos:prefLabel "Population"@en ;
+    skos:definition "The total count of people for a given Feature"@en ;
+    rdfs:isDefinedBy cs: ;
+    skos:inScheme cs: ;
+    skos:topConceptOf cs: ;
+.
+
+popp:populationChange
+    a skos:Concept ;
+    skos:prefLabel "Population Change"@en ;
+    skos:definition "The change in population for a given Feature and a given teporal interval."@en ;
+    rdfs:isDefinedBy cs: ;
+    skos:inScheme cs: ;
+    skos:topConceptOf cs: ;
+.
+

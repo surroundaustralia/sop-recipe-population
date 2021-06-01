@@ -1,0 +1,39 @@
+# baseURI: https://linked.data.gov.au/def/population.observations.shapes
+# imports: http://datashapes.org/dash
+# imports: http://datashapes.org/owl2shacl
+
+@prefix : <https://linked.data.gov.au/def/population.observations.shapes/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+
+
+<https://linked.data.gov.au/def/population.observations.shapes>
+  a owl:Ontology ;
+  owl:imports <http://datashapes.org/dash> ;
+  owl:imports <http://datashapes.org/owl2shacl> ;
+  rdfs:label "Observations Shapes"@en ;
+  rdfs:comment "This file contains shapes that infer properties of Observations from other classes, such as ObservationCollections"@en ;
+.
+:addFeatureToObservationFromObservationCollection
+  a sh:SPARQLRule ;
+  rdfs:label "add Feature to Observation from ObservationCollection" ;
+  sh:construct 	"""  				
+				PREFIX sosa: <http://www.w3.org/ns/sosa/>
+				
+				CONSTRUCT {
+					?o sosa:hasFeatureOfInterest ?f .
+				}
+				WHERE {
+				    ?oc sosa:hasMember ?o ;
+						sosa:hasFeatureOfInterest ?f .
+				}
+				""" ;
+.
+:observationCollection
+  a sh:NodeShape ;
+  sh:class sosa:ObservationCollection ;
+  sh:rule :addFeatureToObservationFromObservationCollection ;
+.

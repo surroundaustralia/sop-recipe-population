@@ -1,0 +1,36 @@
+# baseURI: https://linked.data.gov.au/dataset/popchange1920
+
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fsdf: <https://linked.data.gov.au/def/fsdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix themes: <https://linked.data.gov.au/def/fsdf/themes/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+<https://linked.data.gov.au/dataset/popchange1920> 
+    a dcat:Dataset , fsdf:Dataset ;
+    dcterms:created "2021-05-27"^^xsd:date ;
+    dcterms:creator <https://linked.data.gov.au/org/ga> ;
+    dcterms:identifier "popchange"^^xsd:token ;
+    dcterms:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
+    dcterms:modified "2021-05-31"^^xsd:date ;
+    dcterms:publisher <https://linked.data.gov.au/org/abs>  ;
+    dcterms:description "Population Change 2019/2020 by SA2"@en ;
+    dcterms:title "Population Change Dataset"@en ;
+    dcat:contactPoint [
+        a vcard:Individual ;
+        vcard:fn "Nicholas J. Car" ;
+        vcard:hasEmail "nicholas.car@surroundaustralia.com"^^xsd:anyURI ;
+    ] ;
+    dcat:keyword "population" , "population change" , "Australia" , "census";
+    dcat:theme themes:population-distributions ;
+    prov:asInBundle <https://linked.data.gov.au/dataset/popchange1920/bundle> ;
+    prov:wasDerivedFrom <https://xxx> ;  # original FSDF non-RDF dataset
+    
+    owl:imports <https://linked.data.gov.au/def/fsdf> ;
+    owl:imports <https://linked.data.gov.au/dataset/popchange1920/ocs-sa2s> ;
+.

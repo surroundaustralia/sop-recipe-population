@@ -1,0 +1,28 @@
+PREFIX asgs: <https://linked.data.gov.au/def/asgs#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+
+SELECT *
+WHERE {
+    ?o a sosa:Observation ;
+       sosa:hasFeatureOfInterest/rdf:type asgs:StatisticalAreaLevel2 ;
+       sosa:observedProperty <https://linked.data.gov.au/def/fsdf/population-properties/populationChange> .
+       sosa:hasResult [
+            qudt:numericValue ?v 
+       ] ;
+}
+
+
+
+PREFIX popp: <https://linked.data.gov.au/def/fsdf/population-properties/>
+popp:populationChange
+
+
+CONSTRUCT {
+	?o a <urn:x>
+			#sosa:hasFeatureOfInterest ?f ;
+			#sosa:observedProperty ?op ;
+			#sosa:phenomenonTime ?pt ;
+	.
+}
